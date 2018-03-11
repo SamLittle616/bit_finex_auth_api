@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers\BitFinexAuthApi;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use GuzzleHttp\Client;
 
@@ -60,8 +59,7 @@ class BitFinexAuthApi extends Controller
             ]
         ]);
 
-        $body = $response->getBody(); // Get the body out of the request
-        return $body;
+        return $response->getBody(); // Get the body out of the request
 
     } // PlaceOrder
 

@@ -70,7 +70,7 @@ class BitFnx
      * @param $data
      * @return array
      */
-    private function prepareHeader($data)
+    private function PrepareHeader($data)
     {
         $data['nonce'] = (string) number_format(round(microtime(true) * 1000000), 0, '.', '');
 
@@ -94,7 +94,7 @@ class BitFnx
      */
     private function SendAuthRequest($data)
     {
-        $headers = $this->prepareHeader($data);
+        $headers = $this->PrepareHeader($data);
         return $headers;
     }
 
