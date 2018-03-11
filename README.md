@@ -26,8 +26,9 @@ Request is made this simple way:
             'price' => '1000',
             'exchange' => 'bitfinex',
             'side' => $direction,
-            // exchange market - exchanger order. market - margin order. If you need to open a short position - use 'market'. It is                   impossible to go short with 'exchange order'
-            // Funds must be located at Margin wallet if you go short and long.
+            // exchange market - exchanger order. market - margin order. If you need to open a short position - use 'market'
+            // It is impossible to go short with 'exchange order'
+            // Funds must be located at Margin wallet if you go short and long
             'type' => 'market'
         );
 
