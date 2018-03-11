@@ -21,7 +21,7 @@ use GuzzleHttp\Client;
  */
 class BitFinexAuthApi extends Controller
 {
-    public function Placeorder($volume, $direction)
+    public function PlaceOrder($volume, $direction)
     {
 
         $bitFnx = new BitFnx(); // Created new instance of class
@@ -63,7 +63,7 @@ class BitFinexAuthApi extends Controller
         $body = $response->getBody(); // Get the body out of the request
         return $body;
 
-    } // placeorder
+    } // PlaceOrder
 
 }
 
