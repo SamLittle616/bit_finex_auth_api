@@ -8,9 +8,16 @@ use GuzzleHttp\Client;
 /*
  * Sample class for authenticated endpoins of www.bitfinex.com
  * Guzzle is used instead of CURL 
- * http://docs.guzzlephp.org/en/stable/quickstart.html 
+ * http://docs.guzzlephp.org/en/stable/quickstart.html
+ * 
  * New order function was taken as the example
- * https://bitfinex.readme.io/v1/reference#rest-auth-new-order 
+ * https://bitfinex.readme.io/v1/reference#rest-auth-new-order
+ *
+ * Add a route to web.php: route::get('/placeorder/{volume}/{direction}', 'BitFinexAuthApi\BitFinexAuthApi@placeorder');
+ * The call the controller: http://www.yourdomain.com/public/placeorder/0.025/sell
+ *
+ * The provided code is well commented for further use and understanding
+ * Got a question? Feel free to buzz me at djslinger77@gmail.com
  */
 class BitFinexAuthApi extends Controller
 {
@@ -64,7 +71,6 @@ class BitFnx
 {
     public $pay;
     public $sig;
-
     const API_URL = 'https://api.bitfinex.com';
 
     public $api_key; // "YcGqIAMGDgTVESLBDTTGQ32Q9DTsL0u.....";
