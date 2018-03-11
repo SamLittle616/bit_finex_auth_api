@@ -34,5 +34,7 @@ Request is made this simple way:
     The logic was taken form here: https://github.com/mariodian/bitfinex-auto-lend/blob/master/bitfinex.php 
     The CURL was replaced with Guzzle which made the solution light and easy. 
     
-    
+    <p align="center"><img src="https://raw.githubusercontent.com/dacoders77/bit_finex_auth_api/master/BitFinexApiCURL_UML_Sequence_diagram.PNG"></p> 
+     
+    
 
