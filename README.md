@@ -1,8 +1,11 @@
-# bit_finex_auth_api
+# Bitfinex exchange New Order PHP sample API request
 Access www.bitfinex.com auth api endpoints via Laravel 5.5 and Guzzle
 
 Example of how to place a new order on www.bitfinex.com 
 Order parameters are described here: https://bitfinex.readme.io/v1/reference#rest-auth-new-order
+
+The logic was taken form here: https://github.com/mariodian/bitfinex-auto-lend/blob/master/bitfinex.php 
+CURL was replaced with https://github.com/guzzle/guzzle which made the solution light and easy.
 
 Request is made this simple way: 
 
@@ -30,11 +33,11 @@ Request is made this simple way:
 
         return $this->send_auth_request($data);
     }
-    
-    The logic was taken form here: https://github.com/mariodian/bitfinex-auto-lend/blob/master/bitfinex.php 
-    The CURL was replaced with Guzzle which made the solution light and easy. 
-    
-    <p align="center"><img src="https://raw.githubusercontent.com/dacoders77/bit_finex_auth_api/master/BitFinexApiCURL_UML_Sequence_diagram.PNG"></p> 
-     
-    
+     
+     <p align="center"><img src="https://raw.githubusercontent.com/dacoders77/bit_finex_auth_api/master/BitFinexApiCURL_UML_Sequence_diagram.PNG"></p> 
 
+UML sequence diagram as PDF
+https://github.com/dacoders77/bit_finex_auth_api/blob/master/BitFinexApiCURL_UML_Sequence_diagram.pdf 
+
+UML sequence diagram as an Enterprice Architect project 
+https://github.com/dacoders77/bit_finex_auth_api/blob/master/BitFinexApiCURL_UML_Sequence_diagram.EAP  
