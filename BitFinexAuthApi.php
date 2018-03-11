@@ -12,15 +12,15 @@ use GuzzleHttp\Client;
  * New order function was taken as the example
  * https://bitfinex.readme.io/v1/reference#rest-auth-new-order
  *
- * Add a route to web.php: route::get('/placeorder/{volume}/{direction}', 'BitFinexAuthApi\BitFinexAuthApi@placeorder');
- * The call the controller: http://www.yourdomain.com/public/placeorder/0.025/sell
+ * Add a route to web.php: route::get('/placeOrder/{volume}/{direction}', 'BitFinexAuthApi\BitFinexAuthApi@placeOrder');
+ * The call the controller: http://www.yourdomain.com/public/placeOrder/0.025/sell
  *
  * The provided code is well commented for further use and understanding
  * Got a question? Feel free to buzz me at djslinger77@gmail.com
  */
 class BitFinexAuthApi extends Controller
 {
-    public function PlaceOrder($volume, $direction)
+    public function placeOrder($volume, $direction)
     {
 
         $bitFnx = new BitFnx(); // Created new instance of class
@@ -61,7 +61,7 @@ class BitFinexAuthApi extends Controller
 
         return $response->getBody(); // Get the body out of the request
 
-    } // PlaceOrder
+    } // placeOrder
 
 }
 

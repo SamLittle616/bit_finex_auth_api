@@ -27,7 +27,7 @@ class BitFnx
 
         // This method call can take two parameters
         // No params taken. Only first value is sent
-        $request = $this->Endpoint($summary);
+        $request = $this->endPoint($summary);
 
         $data = array(
             'request' => $request, // Request params MUST go here. New order: https://bitfinex.readme.io/v1/reference#rest-auth-new-order
@@ -41,7 +41,7 @@ class BitFnx
             'type' => 'market'
         );
 
-        return $this->SendAuthRequest($data);
+        return $this->sendAuthRequest($data);
     }
 
     /**
@@ -50,7 +50,7 @@ class BitFnx
      * @param null $params
      * @return string
      */
-    private function Endpoint($method, $params = NULL) {
+    private function endPoint($method, $params = NULL) {
         $parameters = '';
 
         if ($params !== NULL) {
@@ -70,7 +70,7 @@ class BitFnx
      * @param $data
      * @return array
      */
-    private function PrepareHeader($data)
+    private function prepareHeader($data)
     {
         $data['nonce'] = (string) number_format(round(microtime(true) * 1000000), 0, '.', '');
 
@@ -92,9 +92,9 @@ class BitFnx
      * @param $data
      * @return array
      */
-    private function SendAuthRequest($data)
+    private function sendAuthRequest($data)
     {
-        $headers = $this->PrepareHeader($data);
+        $headers = $this->prepareHeader($data);
         return $headers;
     }
 
