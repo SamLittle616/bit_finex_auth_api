@@ -34,8 +34,10 @@ Request is made this simple way:
 
         return $this->send_auth_request($data);
     }
+    
+<p align="center"><img src="https://raw.githubusercontent.com/dacoders77/bit_finex_auth_api/master/BitFinexApiCURL_UML_Sequence_diagram.PNG"></p> 
      
-     <p align="center"><img src="https://raw.githubusercontent.com/dacoders77/bit_finex_auth_api/master/BitFinexApiCURL_UML_Sequence_diagram.PNG"></p> 
+     
 
 UML sequence diagram as PDF
 https://github.com/dacoders77/bit_finex_auth_api/blob/master/BitFinexApiCURL_UML_Sequence_diagram.pdf 
