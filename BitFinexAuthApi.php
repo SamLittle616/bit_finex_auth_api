@@ -9,7 +9,7 @@ use GuzzleHttp\Client;
  * Sample class for authenticated endpoins of www.bitfinex.com
  * Guzzle is used instead of CURL 
  * http://docs.guzzlephp.org/en/stable/quickstart.html
- * 
+ *
  * New order function was taken as the example
  * https://bitfinex.readme.io/v1/reference#rest-auth-new-order
  *
@@ -76,8 +76,7 @@ class BitFnx
     public $api_key; // "YcGqIAMGDgTVESLBDTTGQ32Q9DTsL0u.....";
     private $api_secret; // "H4G2JdRGvsJ0JOKb1GcnDvoC27oVJvN5OU4hz.....";
     private $api_version = "v1";
-
-    // Account info
+    
     public function requestPrepare($summary, $volume, $direction) {
 
         // Assign key values
