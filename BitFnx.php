@@ -8,7 +8,15 @@
 
 namespace App\Http\Controllers\BitFinexAuthApi;
 
-
+/**
+ * Bitfinex exchange New Order PHP sample API request
+ *
+ * @package     App\Http\Controllers\BitFinexAuthApi
+ * @author      Boris Borisov (djslinger77@gmail.com)
+ * @license     https://github.com/dacoders77/bit_finex_auth_api/blob/master/LICENSE
+ * @version     0.1.1
+ * @link        https://github.com/mariodian/bitfinex-api-php
+ */
 class BitFnx
 {
     public $pay;
@@ -19,7 +27,16 @@ class BitFnx
     private $apiSecret; // "H4G2JdRGvsJ0JOKb1GcnDvoC27oVJvN5OU4hz.....";
     private $apiVersion = "v1";
 
-    public function requestPrepare($summary, $volume, $direction) {
+    /**
+     * Request Prepare
+     *
+     * @param string $restAuthEndpoint   Authenticated end point. https://bitfinex.readme.io/v2/docs/rest-auth
+     * @param decimal $volume            Order volume
+     * @param string $direction          Order direction
+     * @return array                     Json server responce associative array
+     */
+
+    public function requestPrepare(string $restAuthEndpoint, float $volume, string $direction) {
 
         // Assign key values
         $this->apiKey = $_ENV['BIT_FINEX_PUBLIC_API_KEY']; // Api keys go here
@@ -27,12 +44,12 @@ class BitFnx
 
         // This method call can take two parameters
         // No params taken. Only first value is sent
-        $request = $this->endPoint($summary);
+        $request = $this->endPoint($restAuthEndpoint);
 
         $data = array(
             'request' => $request, // Request params MUST go here. New order: https://bitfinex.readme.io/v1/reference#rest-auth-new-order
             'symbol'=> 'ETHUSD', // ETHUSD ETCUSD
-            'amount' => $volume, // 0.02
+            'amount' => number_format($volume,2), //$volume, // 0.02
             'price' => '1000',
             'exchange' => 'bitfinex',
             'side' => $direction,
@@ -45,12 +62,12 @@ class BitFnx
     }
 
     /**
-     * End point and api version
-     * @param $method
-     * @param null $params
-     * @return string
+     * End point and api version and parameters
+     * @param string $method        Can be get or post. Only post method is used for authethicated and points. get is used for public ones
+     * @param string $params          In this examples no parameters are given as an input
+     * @return string               Return a string with api version v1/м2 and method parameters
      */
-    private function endPoint($method, $params = NULL) {
+    private function endPoint(string $method, string $params = NULL) {
         $parameters = '';
 
         if ($params !== NULL) {
@@ -67,10 +84,10 @@ class BitFnx
 
     /**
      * Add data to header for authentication purpose
-     * @param $data
+     * @param array $data       Set of key/value pairs accordingly to the correspondent api andpoint
      * @return array
      */
-    private function prepareHeader($data)
+    private function prepareHeader(array $data)
     {
         $data['nonce'] = (string) number_format(round(microtime(true) * 1000000), 0, '.', '');
 
@@ -92,7 +109,7 @@ class BitFnx
      * @param $data
      * @return array
      */
-    private function sendAuthRequest($data)
+    private function sendAuthRequest(array $data)
     {
         $headers = $this->prepareHeader($data);
         return $headers;
