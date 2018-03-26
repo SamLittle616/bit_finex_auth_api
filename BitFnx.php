@@ -30,20 +30,20 @@ class BitFnx
     /**
      * Request Prepare
      *
-     * @param string $restAuthEndpoint   Authenticated end point. https://bitfinex.readme.io/v2/docs/rest-auth
+     * @param string $restAuthEndpoint   Authentication end point. https://bitfinex.readme.io/v2/docs/rest-auth
      * @param decimal $volume            Order volume
      * @param string $direction          Order direction
-     * @return array                     Json server responce associative array
+     * @return array                     Json server response associative array
      */
 
     public function requestPrepare(string $restAuthEndpoint, float $volume, string $direction) {
 
         // Assign key values
         $this->apiKey = $_ENV['BIT_FINEX_PUBLIC_API_KEY']; // Api keys go here
-        $this->apiSecret = $_ENV['BIT_FINEX_PRIVATE_API_KEY']; // Add them to .env file or in "***"
+        $this->apiSecret = $_ENV['BIT_FINEX_PRIVATE_API_KEY']; // Add them to the .env file or in "***"
 
-        // This method call can take two parameters
-        // No params taken. Only first value is sent
+        // This call method can take two parameters
+        // No params are taken. Only the first value is sent
         $request = $this->endPoint($restAuthEndpoint);
 
         $data = array(
@@ -53,8 +53,8 @@ class BitFnx
             'price' => '1000',
             'exchange' => 'bitfinex',
             'side' => $direction,
-            // exchange market - exchanger order. market - margin order. If you need to open a short position - use 'market'. It is impossible to go short with 'exchange order'
-            // Funds must be located at Margin wallet if you go short and long.
+            // Exchange market - exchanger order. Market - margin order. If you need to open a short position, use 'market'. It is impossible to go short using 'exchange order'
+            // The funds must be located in Margin wallet if you go short and long.
             'type' => 'market'
         );
 
@@ -62,10 +62,10 @@ class BitFnx
     }
 
     /**
-     * End point and api version and parameters
-     * @param string $method        Can be get or post. Only post method is used for authethicated and points. get is used for public ones
-     * @param string $params          In this examples no parameters are given as an input
-     * @return string               Return a string with api version v1/м2 and method parameters
+     * The end point, api version, and parameters
+     * @param string $method        The get or post method can be used in this case. Only the post method is used for authentication and points. Get is used for public ones
+     * @param string $params          In this example, no parameters are provided for input
+     * @return string               Return the string in api version v1/м2 with method parameters
      */
     private function endPoint(string $method, string $params = NULL) {
         $parameters = '';
@@ -83,8 +83,8 @@ class BitFnx
     }
 
     /**
-     * Add data to header for authentication purpose
-     * @param array $data       Set of key/value pairs accordingly to the correspondent api andpoint
+     * Add data to the header for authentication purposes
+     * @param array $data       Set key/value pairs according to the correspondent api and point
      * @return array
      */
     private function prepareHeader(array $data)
@@ -105,7 +105,7 @@ class BitFnx
     }
 
     /**
-     * Send a signed HTTP request
+     * Send signed HTTP request
      * @param $data
      * @return array
      */
